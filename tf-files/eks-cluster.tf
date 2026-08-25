@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 20.0"
 
   cluster_name    = local.cluster_name
-  cluster_version = "1.30"
+  cluster_version = "1.36"
 
   subnet_ids = data.aws_subnets.vpc_subnets.ids
   vpc_id     = aws_default_vpc.default_vpc.id
