@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hk-deployment
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-subnets: subnet-06675bda1a1539f1f, subnet-09ffb20c4da788637, subnet-0b4a2635964d4983e
 spec:
   selector:
     app: hk
