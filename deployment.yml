@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hk-deployment
+  labels:
+    app: hk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hk
+  template:
+    metadata:
+      labels:
+        app: hk
+    spec:
+      containers:
+      - name: hk
+        image: paulbouwer/hello-kubernetes:1.10
+        ports:
+        - containerPort: 8080

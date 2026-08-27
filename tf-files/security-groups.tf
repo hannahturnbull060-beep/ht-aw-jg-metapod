@@ -44,3 +44,21 @@ resource "aws_security_group" "all_worker_mgmt" {
     ]
   }
 }
+
+resource "aws_security_group_rule" "example" {
+  type                     = "ingress"
+  from_port                = 31148
+  to_port                  = 31148
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.worker_group_mgmt_one.id
+  source_security_group_id = "sg-065fc4e728e0535f6"
+}
+
+resource "aws_security_group_rule" "exampletwo" {
+  type                     = "ingress"
+  from_port                = 31148
+  to_port                  = 31148
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.worker_group_mgmt_two.id
+  source_security_group_id = "sg-065fc4e728e0535f6"
+}

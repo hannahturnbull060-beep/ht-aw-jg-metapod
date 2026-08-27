@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hk-deployment
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-subnets: subnet-06675bda1a1539f1f
+
+spec:
+  selector:
+    app.kubernetes.io/name: hk
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  clusterIP: 10.100.203.242
+  type: LoadBalancer
+# status:
+#   loadBalancer:
+#     ingress:
+#     - ip:
+
